@@ -1,8 +1,9 @@
+import { Login } from "@/actions/login";
 import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="h-[calc(100vh-5rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="h-[calc(100vh-10rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full animate-[fadeIn_0.5s_ease-in-out]">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -17,7 +18,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form className="mt-6 space-y-4">
+        <form className="mt-6 space-y-4" action={Login}>
           <div className="space-y-3">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
