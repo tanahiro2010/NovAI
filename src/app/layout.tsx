@@ -7,6 +7,7 @@ import { isLogin } from "@/lib/auth";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Session } from "@supabase/supabase-js";
+import { Toaster } from "@/components/ui/sonner";
 
 const MochiyPopPOne = Mochiy_Pop_P_One({ weight: "400", subsets: ["latin"] });
 
@@ -35,10 +36,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <Header />
         </div>
         <main className="flex-grow mt-20 bg-[#FAEBD7]">
-          { children }
+          {children}
         </main>
-        
+
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

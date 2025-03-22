@@ -1,16 +1,31 @@
 "use client";
 import { FormEvent, useState } from "react";
+import { toast } from "sonner";
 import supabaseClient from "@/lib/supabase";
 import Button from "@/components/ui/button";
+import Input from "@/components/ui/input";
 import Link from "next/link";
 
 export default function RegisterPage() {
   const [canPress, setPress] = useState<boolean>(true);
+
   const Register = (async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPress(false);
+    const formData: FormData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const name = formData.get('name') as string;
+    const password = formData.get('password') as string;
+    const confirmPassword = formData.get('confirmPassword') as string;
 
-
+    if (email && name && password && confirmPassword) {
+      if (password == confirmPassword) {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+      } else {
+        toast.error('パスワードが一致しません');
+      }
+    }
+    
   });
   return (
     <div className="h-[calc(100vh-10rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -34,12 +49,8 @@ export default function RegisterPage() {
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                 ユーザー名
               </label>
-              <input
-                id="username"
-                name="username"
-                type="text"
-                required
-                className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
+              <Input
+                name="name"
                 placeholder="username"
               />
             </div>
@@ -48,12 +59,8 @@ export default function RegisterPage() {
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 メールアドレス
               </label>
-              <input
-                id="email"
+              <Input
                 name="email"
-                type="email"
-                required
-                className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
                 placeholder="example@email.com"
               />
             </div>
@@ -62,12 +69,8 @@ export default function RegisterPage() {
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 パスワード
               </label>
-              <input
-                id="password"
+              <Input
                 name="password"
-                type="password"
-                required
-                className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -76,12 +79,8 @@ export default function RegisterPage() {
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
                 パスワード（確認）
               </label>
-              <input
-                id="confirmPassword"
+              <Input
                 name="confirmPassword"
-                type="password"
-                required
-                className="mt-1 block w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -108,7 +107,7 @@ export default function RegisterPage() {
           <div>
             <Button
               type="submit"
-              disabled={!canPress}></Button>
+              disabled={!canPress}>登録する</Button>
           </div>
         </form>
       </div>
