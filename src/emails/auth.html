@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovAI - メールアドレス認証</title>
+    <style>
+        body {
+            font-family: 'Mochiy Pop P One', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #FAEBD7;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(to right, #92400e, #d97706);
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #92400e, #d97706);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            color: #92400e;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">NovAI</h1>
+            <p>小説執筆をAIがサポートしてくれるサービス</p>
+        </div>
+
+        <div class="content">
+            <h2>メールアドレスの認証</h2>
+            <p>NovAIをご利用いただき、ありがとうございます。</p>
+            <p>以下のボタンをクリックして、メールアドレスの認証を完了してください：</p>
+
+            <div style="text-align: center;">
+                <a href="{{ .ConfirmationURL }}" class="button">
+                    メールアドレスを認証する
+                </a>
+            </div>
+
+            <p>もし上記のボタンが機能しない場合は、以下のリンクをコピーしてブラウザに貼り付けてください：</p>
+            <p style="word-break: break-all; color: #666; font-size: 14px;">{{ .ConfirmationURL }}</p>
+
+            <p>このメールに心当たりがない場合は、無視していただいて構いません。</p>
+        </div>
+
+        <div class="footer">
+            <div class="social-links">
+                <a href="https://twitter.com/novai">Twitter</a>
+                <a href="https://github.com/novai">GitHub</a>
+            </div>
+            <p>© 2024 NovAI. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html> 

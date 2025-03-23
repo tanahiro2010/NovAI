@@ -1,10 +1,15 @@
-import { Session } from "@supabase/supabase-js";
-
+"use client";
 import supabaseClient from "./supabase";
 
+export async function isLogin() {
+    const { data: { session }, error } = await supabaseClient.auth.getSession();
+    console.log(error);
+    console.log(session);
 
-export async function isLogin(): Promise<Session | null> {
-    const { data, error } = await supabaseClient.auth.getSession();
+    if (error) {
+        console.error("認証エラー:", error.message);
+        return null;
+    }
 
-    return data.session ?? null;
+    return session;
 }

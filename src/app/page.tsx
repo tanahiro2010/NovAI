@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { data } from "./layout";
 
 export default function Home() {
   return (
@@ -34,7 +33,7 @@ export default function Home() {
         </div>
 
         <div className="text-center mt-6 sm:mt-8">
-          <Link href={data.isLogin ? "/dashboard" : "/login"} className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-amber-700 to-amber-500 text-white rounded-full hover:opacity-90 transition-opacity text-sm sm:text-base">
+          <Link href={"/dashboard"} className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-amber-700 to-amber-500 text-white rounded-full hover:opacity-90 transition-opacity text-sm sm:text-base">
             創作を始める
           </Link>
         </div>

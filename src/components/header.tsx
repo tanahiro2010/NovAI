@@ -1,12 +1,20 @@
+"use client";
+import { useState, useEffect } from "react";
+import { isLogin } from "@/lib/auth";
+
 import Link from "next/link";
 import A from "./ui/link";
-import { Session } from "@supabase/supabase-js";
 
-interface Props {
-    login: Session | null;
-}
+export default function Header() {
+    const [login, setLogin] = useState<boolean>(false);
 
-export default async function Header({ login }: Props) {
+    useEffect(() => {
+        const check = (async () => {
+            setLogin(!!(await isLogin()));
+        })
+
+        check();
+    }, []);
     return (
         <header className="p-5 sm:p-5 flex justify-between items-center bg-gradient-to-b from-[#FAEBD7] via-[#FAEBD7] to-background">
             <div className="text-xl sm:text-3xl text-black">
