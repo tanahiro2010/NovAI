@@ -3,11 +3,9 @@ import supabaseClient from "./supabase";
 
 export async function isLogin() {
     const { data: { session }, error } = await supabaseClient.auth.getSession();
-    console.log(error);
-    console.log(session);
+    const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
 
-    if (error) {
-        console.error("認証エラー:", error.message);
+    if (error || userError || !user) {
         return null;
     }
 

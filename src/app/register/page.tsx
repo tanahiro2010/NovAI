@@ -10,6 +10,5 @@ export default async function Register() {
     <RegisterPage />
     <SessionCheck disableLogin={true} />
     </>
-    
   );
 }
