@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default async function Dashboard() {
     return (
-        <div className="container mx-auto px-4 py-4 max-w-screen-xl">
+        <div className="container mx-auto px-4 max-w-screen-xl">
             {/* ヘッダーセクション */}
-            <div className="mb-3 sm:mb-8">
+            <div className="mb-6 sm:mb-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">マイダッシュボード</h1>
                 <p className="text-sm sm:text-base text-gray-600">あなたの創作活動をサポートします</p>
             </div>
@@ -18,17 +18,17 @@ export default async function Dashboard() {
 
                     <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                         <OptionLink
-                            href="/dashboard/create/novel"
+                            href="/dashboard/novel/new"
                             title="小説作成"
                             description="新しい小説を書き始めましょう"
                         />
                         <OptionLink
-                            href="/dashboard/create/plot"
+                            href="/dashboard/plot/new"
                             title="プロット作成"
                             description="物語の展開を考えましょう"
                         />
                         <OptionLink
-                            href="/dashboard/create/char"
+                            href="/dashboard/char/new"
                             title="キャラクター作成"
                             description="登場人物を設定しましょう"
                         />
@@ -42,17 +42,17 @@ export default async function Dashboard() {
 
                     <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                         <OptionLink
-                            href="/dashboard/create/novel"
+                            href="/dashboard/novel"
                             title="小説管理"
                             description="自身の小説を管理しましょう"
                         />
                         <OptionLink
-                            href="/dashboard/create/plot"
+                            href="/dashboard/plot"
                             title="プロット管理"
                             description="過去のプロットデータを見直しましょう"
                         />
                         <OptionLink
-                            href="/dashboard/create/char"
+                            href="/dashboard/char"
                             title="キャラクター管理"
                             description="過去の登場人物データを見直しましょう"
                         />
