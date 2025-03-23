@@ -1,8 +1,24 @@
+'use client';
+
 import OptionButton from "@/components/ui/option-button";
 import OptionLink from "@/components/ui/option-link";
+import { useRouter } from "next/navigation";
 
+export default function Dashboard() {
+    const router = useRouter();
 
-export default async function Dashboard() {
+    const handleLogout = async () => {
+        if (confirm('ログアウトしますか？')) {
+            router.push('/dashboard/logout');
+        }
+    };
+
+    const handleDeleteAccount = async () => {
+        if (confirm('アカウント削除しますか（削除されると全ての課金は復活しません）？')) {
+            router.push('/dashboard/delete_account');
+        }
+    };
+
     return (
         <div className="container mx-auto px-4 max-w-screen-xl">
             {/* ヘッダーセクション */}
@@ -69,7 +85,7 @@ export default async function Dashboard() {
                         <OptionLink
                             href="/dashboard/setting"
                             title="アカウント設定"
-                            description="アカウントにまつわる設定などができます"
+                            description="新しい小説を書き始めましょう"
                         />
                         <OptionLink
                             href="/dashboard/plans"
@@ -77,12 +93,12 @@ export default async function Dashboard() {
                             description="料金プランに関する設定ができます"
                         />
                         <OptionButton
-                            onClick={() => { if (confirm('ログアウトしますか？')) window.location.href = "/dashboard/logout"; }}
+                            onClick={handleLogout}
                             title="ログアウト"
                             description="ログアウトできます"
                         />
                         <OptionButton
-                            onClick={() => { if (confirm('アカウント削除しますか（削除されると全ての課金は復活しません）？')) window.location.href = "/dashboard/delete_account" }}
+                            onClick={handleDeleteAccount}
                             title="アカウント削除"
                             description="アカウントを削除できます"
                         />
