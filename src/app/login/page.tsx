@@ -6,10 +6,8 @@ metadata.title = "Login / NovAI";
 
 export default async function Login() {
     return (
-        <>
-        <LoginPage />
-        <SessionCheck disableLogin={true} />
-        </>
-        
+        <SessionCheck disableLogin={true} >
+            <LoginPage />
+        </SessionCheck>
     );
 }

@@ -11,7 +11,10 @@ import { Toaster } from "@/components/ui/sonner";
 const MochiyPopPOne = Mochiy_Pop_P_One({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NovAI / 小説執筆をAIがサポートしてくれるサービス",
+  title: {
+    default: "NovAI / 小説執筆をAIがサポートしてくれるサービス",
+    template: "%s / NovAI"
+  },
   description: "NovAIは、AIがあなたの小説執筆をサポートする革新的なサービスです。プロットの構築、文章の推敲、キャラクター設定まで、創作のすべての段階でAIがあなたのパートナーとなります。",
 };
 

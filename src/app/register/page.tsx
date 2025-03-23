@@ -6,9 +6,8 @@ metadata.title = "Register / NovAI";
 
 export default async function Register() {
   return (
-    <>
-    <RegisterPage />
-    <SessionCheck disableLogin={true} />
-    </>
+    <SessionCheck disableLogin={true} >
+      <RegisterPage />
+    </SessionCheck>
   );
 }
