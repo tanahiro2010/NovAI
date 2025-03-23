@@ -6,6 +6,7 @@ import { Mochiy_Pop_P_One } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import SessionCheck from "@/components/auth";
 
 const MochiyPopPOne = Mochiy_Pop_P_One({ weight: "400", subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <Footer />
         <Toaster />
 
-        
+        <SessionCheck disableNotLogin={true} />
       </body>
     </html>
   );
