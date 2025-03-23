@@ -88,7 +88,7 @@ export default function Dashboard() {
                             description="新しい小説を書き始めましょう"
                         />
                         <OptionLink
-                            href="/dashboard/plans"
+                            href="/dashboard/setting/plans"
                             title="プラン設定"
                             description="料金プランに関する設定ができます"
                         />
