@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 import { Mochiy_Pop_P_One } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
+import { Toaster } from "@/components/ui/sonner";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Session } from "@supabase/supabase-js";
-import { Toaster } from "@/components/ui/sonner";
+
 
 const MochiyPopPOne = Mochiy_Pop_P_One({ weight: "400", subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
       <Footer />
       <Toaster />
+      <Analytics />
       </body>
     </html>
   );
