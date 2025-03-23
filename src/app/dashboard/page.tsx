@@ -1,5 +1,6 @@
+import OptionButton from "@/components/ui/option-button";
 import OptionLink from "@/components/ui/option-link";
-import Link from "next/link";
+
 
 export default async function Dashboard() {
     return (
@@ -55,6 +56,35 @@ export default async function Dashboard() {
                             href="/dashboard/char"
                             title="キャラクター管理"
                             description="過去の登場人物データを見直しましょう"
+                        />
+                    </div>
+                </fieldset>
+
+                <fieldset className="mt-4 sm:mt-5 border border-red-500 rounded-md p-2 sm:p-4">
+                    <legend className="text-xl sm:text-2xl text-gray-900 mb-2 ml-[3%] px-1">
+                        アカウント
+                    </legend>
+
+                    <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                        <OptionLink
+                            href="/dashboard/setting"
+                            title="アカウント設定"
+                            description="アカウントにまつわる設定などができます"
+                        />
+                        <OptionLink
+                            href="/dashboard/plans"
+                            title="プラン設定"
+                            description="料金プランに関する設定ができます"
+                        />
+                        <OptionButton
+                            onClick={() => { if (confirm('ログアウトしますか？')) window.location.href = "/dashboard/logout"; }}
+                            title="ログアウト"
+                            description="ログアウトできます"
+                        />
+                        <OptionButton
+                            onClick={() => { if (confirm('アカウント削除しますか（削除されると全ての課金は復活しません）？')) window.location.href = "/dashboard/delete_account" }}
+                            title="アカウント削除"
+                            description="アカウントを削除できます"
                         />
                     </div>
                 </fieldset>
