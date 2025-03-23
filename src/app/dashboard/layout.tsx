@@ -18,20 +18,19 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
   return (
-    <html lang="ja">
-      <body className={`bg-[#FAEBD7] ${MochiyPopPOne.className} flex flex-col`}>
-        <div className="fixed top-0 left-0 w-full z-50">
-          <Header />
-        </div>
-        <main className="flex-grow mt-20 bg-[#FAEBD7]">
-          {children}
-        </main>
+    <>
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Header />
+      </div>
+      <main className="flex-grow mt-20 bg-[#FAEBD7]">
+        {children}
+      </main>
 
-        <Footer />
-        <Toaster />
+      <Footer />
+      <Toaster />
 
-        <SessionCheck disableNotLogin={true} />
-      </body>
-    </html>
+      <SessionCheck disableNotLogin={true} />
+    </>
+      
   );
 }
