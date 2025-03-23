@@ -14,14 +14,13 @@ export default function SessionCheck({ disableLogin = false, disableNotLogin = f
 
     useEffect(() => {
         const check = (async () => {
-            const { data, error } = await supabaseClient.auth.getSession();
+            const { data } = await supabaseClient.auth.getSession();
 
-            if (data.session)
+            if (data.session) {
                 if (disableLogin) router.push('/dashboard');
-            else 
+            } else {
                 if (disableNotLogin) router.push('/login');
-
-            console.log(data);
+            }
         });
         if (disableLogin || disableLogin) {
             check();
