@@ -136,8 +136,7 @@ export default function Setting() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">プラン設定</h2>
                 
                 <div className="space-y-6">
-                    {/* 現在のプラン情報 */}
-                    <div className="border rounded-lg p-4">
+                    <fieldset className="border rounded-lg p-4">
                         <h3 className="text-lg font-medium text-gray-900 mb-2">現在のプラン</h3>
                         <div className="flex items-center justify-between">
                             <div>
@@ -149,62 +148,69 @@ export default function Setting() {
                                 <p className="text-2xl font-bold">¥0</p>
                             </div>
                         </div>
-                    </div>
+                    </fieldset>
 
-                    {/* 利用制限情報 */}
-                    <div className="border rounded-lg p-4">
-                        <h3 className="text-lg font-medium text-gray-900 mb-2">利用制限</h3>
-                        <div className="space-y-2">
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-600">月間AI利用回数</span>
-                                <span className="font-medium">100回/月</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-600">保存可能な作品数</span>
-                                <span className="font-medium">5作品</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-600">AI生成文字数</span>
-                                <span className="font-medium">1,000文字/回</span>
+                    
+                    <fieldset className="border rounded p-2">
+                        <legend className="p-2 ml-[1%]">
+                            有料プランは現在サーバー、AIの制限のため使用不可能です
+                        </legend>
+                        <div className="border rounded-lg p-4">
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">利用制限</h3>
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-gray-600">月間AI利用回数</span>
+                                    <span className="font-medium">100回/月</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-gray-600">保存可能な作品数</span>
+                                    <span className="font-medium">5作品</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-gray-600">AI生成文字数</span>
+                                    <span className="font-medium">1,000文字/回</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* プレミアムプラン案内 */}
-                    <div className="border-2 border-amber-500 rounded-lg p-4">
-                        <h3 className="text-lg font-medium text-gray-900 mb-2">プレミアムプランにアップグレード</h3>
-                        <div className="flex items-center justify-between mb-4">
-                            <div>
-                                <p className="text-2xl font-bold text-amber-600">プレミアムプラン</p>
-                                <p className="text-sm text-gray-600">すべての機能が利用できます</p>
+                        
+                        <div className="border-2 border-amber-500 rounded-lg p-4 mt-2">
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">プレミアムプランにアップグレード</h3>
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <p className="text-2xl font-bold text-amber-600">プレミアムプラン</p>
+                                    <p className="text-sm text-gray-600">すべての機能が利用できます</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="text-sm text-gray-600">月額</p>
+                                    <p className="text-2xl font-bold">¥980</p>
+                                </div>
                             </div>
-                            <div className="text-right">
-                                <p className="text-sm text-gray-600">月額</p>
-                                <p className="text-2xl font-bold">¥980</p>
-                            </div>
+                            <ul className="space-y-2 mb-4">
+                                <li className="flex items-center">
+                                    <span className="text-amber-500 mr-2">✓</span>
+                                    <span>無制限のAI利用</span>
+                                </li>
+                                <li className="flex items-center">
+                                    <span className="text-amber-500 mr-2">✓</span>
+                                    <span>無制限の作品保存</span>
+                                </li>
+                                <li className="flex items-center">
+                                    <span className="text-amber-500 mr-2">✓</span>
+                                    <span>最大5,000文字/回のAI生成</span>
+                                </li>
+                                <li className="flex items-center">
+                                    <span className="text-amber-500 mr-2">✓</span>
+                                    <span>優先サポート</span>
+                                </li>
+                            </ul>
+                            <button className="w-full bg-amber-600 text-white rounded p-3 text-center hover:bg-amber-700 transition-colors" onClick={() => { alert('現在プラン設定は使用できません') }}>
+                                プレミアムプランにアップグレード
+                            </button>
                         </div>
-                        <ul className="space-y-2 mb-4">
-                            <li className="flex items-center">
-                                <span className="text-amber-500 mr-2">✓</span>
-                                <span>無制限のAI利用</span>
-                            </li>
-                            <li className="flex items-center">
-                                <span className="text-amber-500 mr-2">✓</span>
-                                <span>無制限の作品保存</span>
-                            </li>
-                            <li className="flex items-center">
-                                <span className="text-amber-500 mr-2">✓</span>
-                                <span>最大5,000文字/回のAI生成</span>
-                            </li>
-                            <li className="flex items-center">
-                                <span className="text-amber-500 mr-2">✓</span>
-                                <span>優先サポート</span>
-                            </li>
-                        </ul>
-                        <button className="w-full bg-amber-600 text-white rounded p-3 text-center hover:bg-amber-700 transition-colors">
-                            プレミアムプランにアップグレード
-                        </button>
-                    </div>
+                    </fieldset>
+
+                    
+                    
                 </div>
             </div>
         </div>
