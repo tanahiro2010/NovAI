@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import supabaseClient from "@/lib/supabase";
+import Button from "@/components/ui/setting/button";
+import Input from "@/components/ui/setting/input";
 
 export default function Setting() {
     const router = useRouter();
@@ -72,11 +75,9 @@ export default function Setting() {
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             メールアドレス
                         </label>
-                        <input
+                        <Input
                             type="email"
                             name="email"
-                            id="email"
-                            className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm"
                             placeholder="新しいメールアドレス"
                         />
                     </div>
@@ -88,11 +89,10 @@ export default function Setting() {
                             <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700">
                                 現在のパスワード
                             </label>
-                            <input
+                            <Input
                                 type="password"
                                 name="currentPassword"
-                                id="currentPassword"
-                                className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm"
+                                placeholder="現在のパスワード"
                             />
                         </div>
 
@@ -100,11 +100,10 @@ export default function Setting() {
                             <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">
                                 新しいパスワード
                             </label>
-                            <input
+                            <Input
                                 type="password"
                                 name="newPassword"
-                                id="newPassword"
-                                className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm"
+                                placeholder="新しいパスワード"
                             />
                         </div>
 
@@ -112,21 +111,18 @@ export default function Setting() {
                             <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
                                 新しいパスワード（確認）
                             </label>
-                            <input
+                            <Input
                                 type="password"
                                 name="confirmPassword"
-                                id="confirmPassword"
-                                className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm"
+                                placeholder="新しいパスワード（確認）"
                             />
                         </div>
                     </div>
 
                     <div className="w-full">
-                        <button type="submit" disabled={isLoading} className="w-full">
-                            <div className="w-full border border-gray-500 rounded p-3 text-center hover:bg-gray-100">
-                                {isLoading ? '更新中...' : '設定を更新'}
-                            </div>
-                        </button>
+                        <Button disabled={ isLoading }>
+                            { isLoading ? '更新中...' : '設定を更新' }
+                        </Button>
                     </div>
                 </form>
             </div>

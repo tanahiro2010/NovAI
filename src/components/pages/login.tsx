@@ -3,8 +3,8 @@ import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 import supabaseClient from "@/lib/supabase";
 import SessionCheck from "@/components/auth";
-import Button from "@/components/ui/button";
-import Input from "@/components/ui/input";
+import Button from "@/components/ui/accounts/button";
+import Input from "@/components/ui/accounts/input";
 import Link from "next/link";
 
 export default function LoginPage() {

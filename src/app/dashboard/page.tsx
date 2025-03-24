@@ -35,17 +35,17 @@ export default function Dashboard() {
 
                     <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                         <OptionLink
-                            href="/dashboard/novel/new"
+                            href="/dashboard/works/new"
                             title="小説作成"
                             description="新しい小説を書き始めましょう"
                         />
                         <OptionLink
-                            href="/dashboard/plot/new"
+                            href="/dashboard/plots/new"
                             title="プロット作成"
                             description="物語の展開を考えましょう"
                         />
                         <OptionLink
-                            href="/dashboard/char/new"
+                            href="/dashboard/chars/new"
                             title="キャラクター作成"
                             description="登場人物を設定しましょう"
                         />
@@ -59,12 +59,12 @@ export default function Dashboard() {
 
                     <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                         <OptionLink
-                            href="/dashboard/novel"
+                            href="/dashboard/works"
                             title="小説管理"
                             description="自身の小説を管理しましょう"
                         />
                         <OptionLink
-                            href="/dashboard/plot"
+                            href="/dashboard/plots"
                             title="プロット管理"
                             description="過去のプロットデータを見直しましょう"
                         />
