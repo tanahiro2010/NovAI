@@ -1,11 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-export default function Works() {
-    
-
-    return (
-
-    );
+export default function Page() {
+    return null;
 }
