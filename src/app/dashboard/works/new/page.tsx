@@ -1,5 +1,6 @@
 "use client";
 
+import AIChatBox from "@/components/ui/chat/chat-box";
 import Button from "@/components/ui/setting/button";
 import Input from "@/components/ui/setting/input";
 
@@ -23,7 +24,7 @@ export default function NewWork() {
                 />
 
                 <div className="flex mt-3">
-                    <div className="w-2/3 border-r border-gray-600 p-3">
+                    <div className="w-2/3 border-r border-gray-600 px-2">
                         <div className="text-2xl">
                             小説本文
                         </div>
@@ -35,11 +36,7 @@ export default function NewWork() {
                     </div>
 
                     <div className="w-1/3 p-3">
-                        <div className="text-2xl">
-                            AIChat
-                        </div>
-
-
+                        <AIChatBox onSendMessage={() => {}}/>
                     </div>
                 </div>
                 

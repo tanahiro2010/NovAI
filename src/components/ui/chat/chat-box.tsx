@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Input from '../setting/input';
 
 interface Message {
     role: 'user' | 'assistant';
@@ -12,7 +11,7 @@ interface Props {
     onSendMessage: (message: string) => void;
 }
 
-export default function ChatBox({ onSendMessage }: Props) {
+export default function AIChatBox({ onSendMessage }: Props) {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<Message[]>([]);
 
@@ -30,6 +29,9 @@ export default function ChatBox({ onSendMessage }: Props) {
     return (
         <div className="flex flex-col h-full">
             {/* メッセージ表示エリア */}
+            <div className="text-2xl">
+                Chat
+            </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.map((msg, index) => (
                     <div
@@ -37,11 +39,10 @@ export default function ChatBox({ onSendMessage }: Props) {
                         className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                         <div
-                            className={`max-w-[80%] rounded-lg p-3 ${
-                                msg.role === 'user'
+                            className={`max-w-[80%] rounded-lg p-3 ${msg.role === 'user'
                                     ? 'bg-amber-600 text-white'
                                     : 'bg-gray-100 text-gray-900'
-                            }`}
+                                }`}
                         >
                             {msg.content}
                         </div>
@@ -50,24 +51,21 @@ export default function ChatBox({ onSendMessage }: Props) {
             </div>
 
             {/* メッセージ入力フォーム */}
-            <form onSubmit={handleSubmit} className="p-4 border-t">
-                <div className="flex gap-2">
-                    <Input
-                        type="text"
-                        name="message"
-                        className="flex-1"
-                        placeholder="AIに質問する..."
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    />
-                    <button
-                        type="submit"
-                        className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition-colors"
-                    >
-                        送信
-                    </button>
-                </div>
+            <form onSubmit={handleSubmit} className="px-2 border-t">
+                <input
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="mt-2 w-full p-2 border rounded"
+                    placeholder="AIに質問する..."
+                />
+                <button
+                    type="submit"
+                    className="mt-2 w-full px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition-colors"
+                >
+                    送信
+                </button>
             </form>
         </div>
     );
-} 
+}
