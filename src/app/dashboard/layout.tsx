@@ -30,7 +30,6 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
         </SessionCheck>
       </div>
 
-      <Footer />
       <Toaster />
     </div>
   );
