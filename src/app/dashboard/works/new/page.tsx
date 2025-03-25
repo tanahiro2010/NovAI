@@ -1,49 +1,41 @@
-"use client";
+'use client';
 
-import AIChatBox from "@/components/ui/chat/chat-box";
-import Button from "@/components/ui/setting/button";
-import Input from "@/components/ui/setting/input";
+import { useState } from "react";
+import AIChatBox from "@/components/ui/chat/ai-chat-box";
 
-export default function NewWork() {
+export default function Works() {
+    const handleSendMessage = async (message: string): Promise<string> => {
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message }),
+            });
+
+            if (!response.ok) {
+                throw new Error('API request failed');
+            }
+
+            const data = await response.json();
+            return data.message;
+        } catch (error) {
+            console.error('Error sending message:', error);
+            throw error;
+        }
+    };
 
     return (
-        <div className="container mx-auto px-4 w-full">
-            <div className="mb-4 sm:mb-6">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">作品作成</h1>
-                <p className="text-sm sm:text-base text-gray-600">新しい作品を作成しましょう</p>
+        <div className="container mx-auto px-4 max-w-screen-xl h-[calc(100vh-5rem)] flex flex-col">
+            <div className="mb-4">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">AIアシスタント</h1>
+                <p className="text-sm sm:text-base text-gray-600">プロットや文章の相談ができます</p>
             </div>
 
-            <div className="rounded-md bg-white p-4 w-full">
-                <div className="text-2xl">
-                    小説作成
-                </div>
-
-                <Input
-                    name="title"
-                    placeholder="小説タイトル"
-                />
-
-                <div className="flex mt-3">
-                    <div className="w-2/3 border-r border-gray-600 px-2">
-                        <div className="text-2xl">
-                            小説本文
-                        </div>
-                        <textarea 
-                            name="text" 
-                            className="mt-2 w-full border rounded p-4 h-[20rem]" 
-                            placeholder="本文をここに入力..."
-                        />
-                    </div>
-
-                    <div className="w-1/3 p-3">
-                        <AIChatBox onSendMessage={() => {}}/>
-                    </div>
-                </div>
-                
-                <Button className="mt-3">
-                    保存
-                </Button>
+            <div className="flex-1 bg-white rounded-lg shadow">
+                <AIChatBox onSendMessage={handleSendMessage} />
             </div>
         </div>
-    )
+    );
 }
