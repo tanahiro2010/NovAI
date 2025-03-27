@@ -30,7 +30,7 @@ export default function RegisterPage() {
         if (error) {
           toast.error('登録に失敗しました。メールアドレスが使用されている可能性があります');
         } else {
-          window.location.href = '/login';
+          window.location.href = '/login?page=register';
           toast.success('メールアドレスを認証後、ログインしてください');
         }
         

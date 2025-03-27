@@ -1,5 +1,5 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
 import supabaseClient from "@/lib/supabase";
 import SessionCheck from "@/components/auth";
@@ -9,6 +9,13 @@ import Link from "next/link";
 
 export default function LoginPage() {
     const [canPress, setPress] = useState<boolean>(true);
+    const [pageMode, setPageMode] = useState<string>("");
+    useEffect(() => {
+        const absUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
+        const { searchParams } = new URL(absUrl);
+        const page = searchParams.get('page') as string;
+        setPageMode(page);
+    }, []);
     const login = (async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setPress(false);
@@ -31,6 +38,15 @@ export default function LoginPage() {
     return (
         <div className="h-[calc(100vh-10rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full animate-[fadeIn_0.5s_ease-in-out]">
+                { pageMode == "register" ? (
+                    <>
+                    <div className="border border-green-400 rounded-md p-3">
+                        登録に成功しました<br />
+                        メールアドレスの認証後ログインが可能です
+                    </div><br />
+                    </>
+                ) : null }
+
                 <div className="text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">
                         ログイン
@@ -43,6 +59,8 @@ export default function LoginPage() {
                         へ
                     </p>
                 </div>
+
+                
 
                 <form className="mt-6 space-y-4" onSubmit={login}>
                     <div className="space-y-3">
