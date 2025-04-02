@@ -33,7 +33,7 @@ export default function Works() {
                 <p className="text-sm sm:text-base text-gray-600">プロットや文章の相談ができます</p>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow">
+            <div className="flex-1 bg-white rounded-lg shadow" style={{ height: '1200px !important', maxHeight: '1200px !important' }}>
                 <AIChatBox onSendMessage={handleSendMessage} />
             </div>
         </div>
